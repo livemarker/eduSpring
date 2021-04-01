@@ -1,0 +1,14 @@
+package lesson1;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Start {
+    public static void main(String[] args) {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+        Lyricist lyricist = applicationContext.getBean("LyricistBean1", Lyricist.class);
+        System.out.println(lyricist.generate());
+        ((ConfigurableApplicationContext) applicationContext).close();
+    }
+}
